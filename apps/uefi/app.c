@@ -37,7 +37,10 @@ ShellAppMain (
   IN CHAR16 **Argv
   )
 {
-  command_init();
-  execute_tests();
+  UINT32 st = command_init();
+    if (st == SHELL_INVALID_PARAMETER || st == 0) {
+      return 2;        // CLI misuse; do NOT run tests., prints HelpMsg()
+    }
+    return (INTN)execute_tests();
   return 0;
 }
