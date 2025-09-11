@@ -351,7 +351,7 @@ command_init ()
   // Options with Flags
   if ((ShellCommandLineGetFlag (ParamPackage, L"-help")) || (ShellCommandLineGetFlag (ParamPackage, L"-h"))){
      HelpMsg();
-     return 0;
+     return SHELL_INVALID_PARAMETER;
   }
 
   // Options with Flags

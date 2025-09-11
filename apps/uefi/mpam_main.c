@@ -357,7 +357,7 @@ command_init ()
     /* Options with Values */
     if ((ShellCommandLineGetFlag (ParamPackage, L"-help")) || (ShellCommandLineGetFlag (ParamPackage, L"-h"))) {
         HelpMsg();
-        return 0;
+        return SHELL_INVALID_PARAMETER;
     }
 
     /* Initialize global counters */

@@ -37,7 +37,9 @@ ShellAppMain (
   IN CHAR16 **Argv
   )
 {
-  command_init();
-  execute_tests();
-  return 0;
+  UINT32 CommandInitReturn = command_init();
+    if (CommandInitReturn == SHELL_INVALID_PARAMETER) {
+      return 2;        // do NOT run tests, prints HelpMsg()
+    }
+    return (INTN)execute_tests();
 }
